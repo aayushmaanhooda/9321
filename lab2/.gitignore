@@ -1,2 +1,3 @@
 # Ignore virtual environments
 lab2/
+ ../.DS_Store
