@@ -1,33 +1,3 @@
-"""
-===========================================
-📦 FASTAPI SETUP & RUN INSTRUCTIONS
-===========================================
-
-1️⃣ Install the required libraries:
------------------------------------
-pip install fastapi uvicorn requests pandas
-
-2️⃣ Run the FastAPI application:
---------------------------------
-# Option 1: From code (activity6 is your file name)
-python3 activity6.py
-
-# Option 2: From terminal (recommended)
-uvicorn activity6:app --reload
-
-3️⃣ Access the Endpoints:
--------------------------
-- Fetch Raw JSON        → http://127.0.0.1:8000/fetch-json
-- Get DataFrame as JSON → http://127.0.0.1:8000/get-df
-
-4️⃣ API Documentation (Swagger UI):
------------------------------------
-- Swagger UI  → http://127.0.0.1:8000/docs ✅
-- ReDoc       → http://127.0.0.1:8000/redoc ✅
-
-💡 Cool feature in FastAPI is it automatically generates interactive API docs at **/docs** (Swagger UI) and **/redoc** (ReDoc) without additional setup.
-"""
-
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 import requests
@@ -42,6 +12,15 @@ def fetch_json_to_df(url):
     json_data = response.json()
     df = pd.DataFrame(json_data)
     return json_data, df
+
+# 🌟 Root route returning "Hello World"
+@app.get('/')
+def read_root():
+    """
+    ➤ Access this at:
+      http://127.0.0.1:8000/
+    """
+    return {"message": "Welcome to FastApi Application"}
 
 # ✅ Route to fetch raw JSON
 @app.get('/fetch-json')

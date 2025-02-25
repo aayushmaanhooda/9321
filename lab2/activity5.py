@@ -31,6 +31,14 @@ def fetch_json_to_df(url):
     df = pd.DataFrame(json_data)
     return json_data, df
 
+
+# ✅ Route to fetch raw JSON
+@app.route('/', methods=['GET'])
+def read_root():
+     return {
+         "message": "Welcome to Flask Application"
+        }
+
 # ✅ Route to fetch raw JSON
 @app.route('/fetch-json', methods=['GET'])
 def fetch_json():
