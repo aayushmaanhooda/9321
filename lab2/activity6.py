@@ -13,7 +13,7 @@ def fetch_json_to_df(url):
     df = pd.DataFrame(json_data)
     return json_data, df
 
-# 🌟 Root route returning "Hello World"
+# 🌟 Root route returning "Welcome message"
 @app.get('/')
 def read_root():
     """
