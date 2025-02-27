@@ -32,7 +32,7 @@ def fetch_json_to_df(url):
     return json_data, df
 
 
-# ✅ Route to fetch raw JSON
+# 🌟 Root route returning "Welcome message"
 @app.route('/', methods=['GET'])
 def read_root():
      return {
